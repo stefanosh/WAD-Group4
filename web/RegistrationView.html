@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<html>
+<head>
+			
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="./css/style.css">        
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+                <meta name="viewport" content="width=device-width">
+	<title>Registration | Cinema World/Ticket Booking</title>    
+</head>
+<body>        
+<div id="whole" class="row">
+	<div class="col-2">
+	</div>
+	<div id="stuff" class="col-8">
+	<div class="row">	
+	</div>
+	<div class="col-8">
+            <nav class="menu">
+                <ul>
+                    <li>
+                    <a href="index.jsp">Home</a>
+                    </li>
+                    <li>
+                    <a href="Login.java">Login</a>
+                    </li>
+                    <li>
+                    <a href="/">New Additions</a>
+                    </li>
+                    <li>
+                    <a href="/">Movie Trailers</a>
+                    </li>
+                    <li>
+                    <a href="/">Book Tickets</a>
+                    </li>
+                     <li>
+                    <a href="/">About Us</a>
+                    </li>
+                    <li>
+                    <a href="/">Log Out</a>
+                    </li>
+                </ul>
+            </nav>
+            </div>
+            
+            <br/><br/>
+	<div class="row">				
+		<div class="col-12">              
+		<div  id="myNiceForm">
+		<form class="form-signin" role="form" method="POST" name="myForm" onsubmit="return validateForm()" action="registrationController">
+	<div class="form-element">                    
+           <!-- aria-required="true" aria-describedby="name-format" -->
+           <label for="name">Name: </label>                   
+    	<input type="text" class="normal" placeholder="Enter first and last name" id="name" name="name" onchange='isAlphabet()' onblur="valName()" />
+		<p id="nameResp"> </p>                   
+        </div>
+        <div class="form-element">   
+        <label for="username"> Username </label>
+        <input type="text" class="normal" placeholder="Enter username " id="username" name="username" onchange='isAlphabet()' required aria-required="true" />                    
+        </div>
+        <div class="form-element">   
+        <label for="password"> Password </label>
+        <input type="password" class="normal" placeholder="Enter password " id="password" name="password" onchange='isAlphabet()'required aria-required="true"  />                    
+        </div>
+        <div class="form-element">   
+        <label for="repassword"> Repeat password </label>
+        <input type="password" class="normal" placeholder="Repeat password " id="repassword" name="repassword" onchange='passwordCheck()' onfocus='onFocName()' required aria-required="true" />                    
+        </div>
+        <div class="form-element">   
+        <label for="email"> Email: </label>
+        <input type="email" class="normal" placeholder="Enter email: " id="email" name="email" onchange='isAlphabet()' onfocus='onFocName()' required aria-required="true" aria-describedby="name-format" />                    
+        </div>
+        <div class="form-element">   
+        <label for="gender"> Choose gender: </label>
+        <strong>Female</strong>
+        <input type="radio" class="normal" name="gender" value="female" checked />
+        <strong>Male</strong>
+        <input type="radio" class="normal" name="gender" value="male"  />      
+        </div>
+        <div class="form-element">   
+        <label for="telephone"> Telephone </label>
+	<input type="tel" class="normal" placeholder="Enter telephone number" id="telephone" name="telephone" onchange='isNumeric()' onfocus='onFocName()' required aria-required="true" aria-describedby="name-format" />                    
+        </div>
+    <div class="form-element">   
+        <label for="country"> Country </label>
+        <select name="country">
+            <option value="Romania">Romania </option>
+            <option value="UK"> UK </option>
+            <option value="USA"> USA </option>
+        </select>
+    </div>
+  <div class="form-element">   
+       Subscribe to mail list. <input type="checkbox" name="subscribe"> 
+        
+        </div>
+	<div class="form-element">                    
+	<input type="submit" class="btn" value="Submit" onclick="return validateForm()">                
+	</div>
+        <input type="hidden" name="viewid" value="formthing.html">
+</form>
+
+				</div>
+		</div>		
+	</div>		
+</div>
+<div class="col-2">
+</div>
+</div>
+<script>
+
+  function isNumeric(num){
+    return !isNaN(num)
+};
+function isAlphabet( )
+{
+var n=document.forms["myForm"]["name"].value;
+var letters = /^[A-Za-z]+$/;  
+   if(n.value.match(letters))  
+     {  
+      return true;  
+     }  
+   else  
+     {
+document.getElementByID("nameResp").innerHTML="Name should include only letters."	 
+     return false;  
+     }  
+};
+/* function passwordCheck1(var x)
+{
+if ( $(x).children("input").val.length<6) 
+            {
+                alert("Password must be at least 6 characters long.");
+				this.style.background-color="red";
+				return false;
+            }
+};
+function passwordCheck() 
+{
+  var r=document.forms["myForm"]["repassword"].val;
+  var p=document.forms["myForm"]["password"].val;
+  if(r!=p) {
+      console.log("Both passwords must be the same");
+      return false;
+  }
+};
+function checkSTh()
+{
+		$("#title").hide();
+	}; -->
+*/
+        function validateForm()
+        {
+            var n=document.forms["myForm"]["name"].value;
+            if(n==="" || n===" ") 
+            {
+                alert("Name must be filled out");
+                return false;
+            }
+            var u=document.forms["myForm"]["username"].value;
+            if(u==="" || u===" ") 
+            {
+                alert("Username must be filled out");
+                return false;
+            }
+            var p=document.forms["myForm"]["password"].value;
+            if(p==="") 
+            {
+                alert("Password must be filled out");
+                return false;
+            }
+            var r=document.forms["myForm"]["repassword"].value;
+            
+            if(r !== p)
+            {
+                alert("Password and repeat password must be the same");
+                return false;
+            }
+						
+			var e=document.forms["myForm"]["email"].value;
+            if(e==="") 
+            {
+                alert("Email must be filled out");
+                return false;
+            }
+            var t=document.forms["myForm"]["telephone"].value;
+            if(t==="") 
+            {
+                alert("Telephone must be filled out");
+                return false;
+            }
+            return true;
+            
+        };
+		
+		
+		function valName()
+{
+
+var n=document.forms["myForm"]["name"].val;
+
+if(!(n.isAlphabet())) {
+document.getElementByID("nameResp").innerHTML ="Name should include only letters.";
+}
+};
+        
+       </script>
+       </body>
+</html>

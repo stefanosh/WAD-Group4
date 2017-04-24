@@ -1,0 +1,39 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 23, 2017, 12:36:28 AM
+    Author     : MADA
+*/
+
+/* Global Styles */
+*{
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+#Table_01{
+	margin: auto;
+}
+body {
+background-color:black;
+color:white;
+}
+table{
+font: 12px "verdana";
+}
+select,textarea,input{
+	width:200px;
+}
+.menu a{
+    color:white;
+    text-decoration: none; 
+    display: inline-block;
+    background-repeat:no-repeat;
+}
+a:hover{
+    color:blue;
+}
+
